@@ -27,9 +27,9 @@ open URLs, move/resize windows, switch workspaces).
 - **Workspace Profiles** - one action switches an entire environment
   (apps + window layout + monitor assignment).
 
-## Relation to other DD-PLAY-AI projects
+## Relation to other D:OT projects
 
-`mpk-deck` is the deterministic execution layer. [`ai-hub`](https://github.com/DD-PLAY-AI/ai-hub)
+`mpk-deck` is the deterministic execution layer. [`ai-hub`](https://github.com/dot-connects/ai-hub)
 is expected to call into it (locally, via a documented protocol) to execute
 AI-decided structured intents rather than issuing raw OS commands directly.
 
@@ -42,4 +42,4 @@ AI-decided structured intents rather than issuing raw OS commands directly.
 
 Background: this scope corresponds to sections 3-8 (Personal Deck, Action
 Engine, MPK integration, Window/Monitor Manager, Workspace Profiles) of the
-DD-PLAY-AI workspace planning spec.
+D:OT workspace planning spec.

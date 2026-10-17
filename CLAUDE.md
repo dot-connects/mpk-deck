@@ -9,7 +9,7 @@
 
 ## 정체성
 
-`mpk-deck`는 DD-PLAY-AI 시스템의 결정론적 실행 계층("hands")이다 —
+`mpk-deck`는 D:OT 시스템의 결정론적 실행 계층("hands")이다 —
 Action Engine + PySide6 Personal Deck UI + AKAI MPK mini MK2 MIDI 제어.
 AI 판단은 하지 않으며, 검증된 intent만 실행한다.
 
