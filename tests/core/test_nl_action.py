@@ -116,7 +116,7 @@ def test_call_uses_haiku_model_and_forces_the_tool():
     parse_nl_action("open example.com", PROGRAMS, client=client)
 
     kwargs = client.messages.last_kwargs
-    assert kwargs["model"] == "claude-haiku-4-5"
+    assert kwargs["model"].startswith("claude-haiku-")   # the registry picks the version
     assert kwargs["tool_choice"] == {
         "type": "tool",
         "name": "propose_binding",
