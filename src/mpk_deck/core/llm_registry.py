@@ -10,6 +10,8 @@ import contextvars
 import json
 import logging
 import os
+import threading
+import time
 import tomllib
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
@@ -73,6 +75,24 @@ def channel(name: str):
         yield
     finally:
         _channel.set(previous)
+
+
+@contextlib.contextmanager
+def in_flight(call_id: str, step: Step):
+    """While a call runs, llm-calls/running/<pid>-<thread>.json names it (ai-hub ops status). Never raises."""
+    path = log_dir() / "running" / f"{os.getpid()}-{threading.get_ident()}.json"
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps({"system": call_id.split(".", 1)[0], "channel": _channel.get(), "id": call_id,
+                                    "provider": step.provider, "started": time.time()}, ensure_ascii=False),
+                        encoding="utf-8")
+    except OSError:
+        log.exception("llm in-flight marker write failed")
+    try:
+        yield
+    finally:
+        with contextlib.suppress(OSError):
+            path.unlink()
 
 
 def _stamp(path: Path) -> tuple:
