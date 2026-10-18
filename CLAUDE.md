@@ -43,7 +43,7 @@ Save를 눌러야 반영, 기존 `action_registry` 검증 경로를 그대로 �
 - **상수 재확인 테스트를 쓰지 않는다** — "내가 값을 의도적으로 바꿀 때만
   깨지는 테스트"는 버그를 잡지 못한다 (`~/.claude/CLAUDE.md` 코딩 스타일).
 - 하드웨어 매핑은 pytest가 증명하지 못한다. **실기 O/X만 인정한다** —
-  `C:\DC\DD\tasks\T-0002-mpk-deck-hardware-e2e.md`.
+  `C:\DC\DD\tasks\done\T-0002-mpk-deck-hardware-e2e.md`.
 
 ## 하드웨어 매핑을 만질 때
 
