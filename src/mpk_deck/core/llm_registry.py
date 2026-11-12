@@ -23,6 +23,8 @@ DEFAULT_LOG_DIR = Path(r"C:\DC\DD\llm-calls")
 PROVIDER_FIELDS = {
     "claude": {"effort"}, "codex": {"effort"}, "codex_image": {"effort"},
     "gemini": {"thinking_budget"}, "anthropic_api": {"max_tokens"},
+    # image API called from a Cloudflare Worker (dot-lab catch); quality = low|medium|high
+    "openai": {"quality"},
 }
 EFFORTS = {"low", "medium", "high", "xhigh", "max", "ultra"}
 _channel: contextvars.ContextVar[str] = contextvars.ContextVar("llm_channel", default="")
